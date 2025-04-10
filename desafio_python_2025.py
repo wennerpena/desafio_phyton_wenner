@@ -44,7 +44,7 @@ def saque(*, saldo, valor, extrato, limite, numero_saques, limite_saques):
     else:
         print("\n==== Operação Cancelada! O valor informado é inválido. ====")
 
-    return saldo, extrato
+    return saldo, extrato, numero_saques
 
 
 def exibir_extrato(saldo, /, *, extrato):
@@ -55,8 +55,7 @@ def exibir_extrato(saldo, /, *, extrato):
 
 def main():
     LIMITE_SAQUES = 3
-    AGENCIA = "0001"
-
+    
     saldo = 0
     limite = 500
     extrato = ""
@@ -74,7 +73,7 @@ def main():
         elif opcao == "s":
             valor = float(input("Qual valor deseja sacar: "))
 
-            saldo, extrato = saque(
+            saldo, extrato, numero_saques = saque(
                 saldo=saldo,
                 valor=valor,
                 extrato=extrato,
@@ -94,3 +93,4 @@ def main():
 
 
 main()
+
